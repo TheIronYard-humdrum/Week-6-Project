@@ -2,20 +2,32 @@ import $ from 'jquery'
 import _ from 'lodash'
 
 // import { Stage } from './stage.js'
-// import { Gopher } from './gophers.js'
+import { Gopher } from './gophers.js'
+
+var gopherGenerator = function (numberDesiredGophers) {
+  let gophers = [];
+  for ( var i = 0; i < numberDesiredGophers; i++ ) {
+    gophers.push(new Gopher)
+  }
+  return gophers
+}
+
 
 class Smashcage {
-  constructor () {
-    this.tally = [];
+  constructor (level, stage) {
+    this.gophers = gopherGenerator(level.gophers);
     this.score = {
-      misses: 0,
-      hits: 0
+      hits: 0,
+      misses: 0
     }
-  }  
+  }
 
-  smash(gopher) {
-    gopher.smashed = true;
-    gopher.img = gopher.smashedImg;
+  addGophers(stage) {
+    for (var i = 0; i < this.gophers.length; i++) {
+      console.log(stage);
+      stage.show(this.gophers[i]);
+      console.log(stage);
+    }   
   }
 
 }

@@ -9,7 +9,16 @@ class Gopher {
   constructor () {
     this.location = null;
     this.costume = null;
+    this.smashedCostume = null;
     this.smashed = false;
+  }
+
+  smash() {
+    let ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
+    this.smashed = true;
+    this.costume = this.smashedCostume;
+    let gopherHole = $(`#${ids[this.location]}`)
+    gopherHole.css('background-image', `url(${this.costume})`)
   }
 }
 

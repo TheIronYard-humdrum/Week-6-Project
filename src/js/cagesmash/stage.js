@@ -13,9 +13,9 @@ const costumes = ['https://www.placecage.com/c/140/140',
                  'https://www.placecage.com/c/200/200',
                  'https://www.placecage.com/c/220/220'];
 
-// const smashedCosutmes = ['https://www.placecage.com/c/120/120',
-//                         'https://www.placecage.com/c/130/130',
-//                         'https://www.placecage.com/c/190/190']
+const smashedCostumes = ['https://www.placecage.com/c/120/120',
+                        'https://www.placecage.com/c/130/130',
+                        'https://www.placecage.com/c/190/190']
 const locations = [0,0,0,
                   0,0,0,
                   0,0,0]
@@ -32,26 +32,28 @@ var randomPosition = function () {
 var randomCostume = function () {
   return _.sample(costumes)
 }
+var randomSmashedCostume = function () {
+  return _.sample(smashedCostumes)
+}
 
 class Stage {
 
-  constructor (game) {
-    this.gopher = new Gopher;
+  constructor () {
     this.locations = locations;
   }
 
   show(gopher) {
-    let position = randomPosition();
+    let ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
     gopher.costume = randomCostume();
-    gopher.location = position;
-    console.log(gopher.location)
-    //set time out for two seconds
-    this.hide(gopher);
-  }
+    gopher.smashedCostume = randomSmashedCostume();
+    gopher.location = randomPosition();
+    locations[gopher.location] = 1; //has gopher
+    let gopherHole = $(`#${ids[gopher.location]}`)
+    gopherHole.css('background-image', `url(${gopher.costume})`)
 
-  hide(gopher) {
-    this.locations[gopher.position] = 0;
-    gopher.smashed = false;
+    // wait 2 seconds
+    // locations[gopher.position] = 0; //remove gopher from board
+    // gopherHole.css('background-image', 'none') //remove gopher image
   }
 
 }
