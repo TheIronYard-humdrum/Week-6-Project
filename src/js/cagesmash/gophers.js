@@ -1,7 +1,6 @@
 import $ from 'jquery'
 import _ from 'lodash'
 
-
 import { ids } from './stage.js'
 import { level } from '../main.js'
 
@@ -20,6 +19,4 @@ class Gopher {
     gopherHole.css('background-image', `url(${this.costume})`);
   }
 }
-
-
 export { Gopher }

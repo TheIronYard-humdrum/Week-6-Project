@@ -4,9 +4,6 @@ import _ from 'lodash'
 import { Smashcage } from './game.js'
 import { Gopher } from './gophers.js'
 import { level } from '../main.js'
-// // 0 = no gopher
-// // 1 = yes gopher
-
 
 const costumes = ['https://www.placecage.com/c/140/140',
                  'https://www.placecage.com/c/170/170',
@@ -35,18 +32,16 @@ var randomPosition = function () {
 var randomCostume = function () {
   return _.sample(costumes)
 }
+
 var randomSmashedCostume = function () {
   return _.sample(smashedCostumes)
 }
 
 class Stage {
-
   constructor () {
     this.locations = locations;
   }
-
   show(gopher, level) {
-    // var gopher = gopher;
     var that = this;
     gopher.costume = randomCostume();
     gopher.smashedCostume = randomSmashedCostume();
@@ -54,30 +49,16 @@ class Stage {
     locations[gopher.location] = gopher; //has gopher
     let gopherHole = $(`#${ids[gopher.location]}`)
     gopherHole.css('background-image', `url(${gopher.costume})`)
-    // wait 2 seconds
     setTimeout(function() {
       that.hide(gopher)
       locations[gopher.location] = 0;
     }, level.time)
-    // locations[gopher.position] = 0; //remove gopher from board
-    // gopherHole.css('background-image', 'none') //remove gopher image
   }
-
   hide(gopher) {
     let gopherHole = $(`#${ids[gopher.location]}`)
     locations[gopher.position] = 0; //remove gopher from board
     gopherHole.css('background-image', `none`)
   }
-
 }
 
-
 export { Stage, ids }
-
-
-
-
-
-
-
-

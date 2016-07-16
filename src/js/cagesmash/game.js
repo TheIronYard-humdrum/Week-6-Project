@@ -17,21 +17,14 @@ var gopherGenerator = function (numberDesiredGophers) {
   }
   return gophers
 }
-
-
 class Smashcage {
   constructor (level, stage) {
     this.gophers = gopherGenerator(level.gophers);
-    this.score = {
-      hits: 0,
-      misses: 0
-    }
+    this.score = 0;
   }
-
   addGopher(gopher, stage, level) {
     stage.show(gopher, level)
   }
-
   setUp(stage) {
     let board = $('#board')
     for ( var i = 0; i < stage.locations.length; i++ ) {
@@ -39,23 +32,27 @@ class Smashcage {
       board.append(spotHTML)
     }
   }
-
-
   init (stage, level) {
     var gopher = this.gophers[0]
     stage.show(gopher, level);
     var callCount = 1;
     gopher = this.gophers;
+    var that = this;
     var repeater = setInterval(function() {
       if(callCount < level.gophers) {
         stage.show(gopher[callCount], level);
         callCount += 1;
       } else {
         clearInterval(repeater);
+        setTimeout(function() {
+          that.gameOver();
+        }, 500)
       }
-    }, (level.time/2))
+    }, (level.time/2));
   }
-
+  gameOver () {
+    console.log('YOU WIN')
+  }
 }
 
 export { Smashcage }
