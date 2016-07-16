@@ -11,14 +11,14 @@ const hard = {time: 1200, gophers: 50 }
 const crazy = {time: 900, gophers: 60 }
 
 var level = $('select').val().toLowerCase();
-if (level === 'easy') {
-  level = easy;
-} else if (level === 'medium') {
+if (level === 'medium') {
   level = medium
 } else if (level === 'hard') {
   level = hard
-} else {
+} else if (level === 'crazy') {
   level = crazy
+} else {
+  level = easy
 }
 
 let stage = new Stage();
@@ -32,7 +32,8 @@ var findGophers = function() {
     let gopher = stage.locations[gopherHole]
     gopher.smash();
     game.score += 100;
-    console.log(game.score);
+    var score = $('.score')
+    score[0].innerText = `Score: ${game.score}`
   };
 });
 }
