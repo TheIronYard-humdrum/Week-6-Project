@@ -30,6 +30,7 @@ var populateBoard = function() {
 }
 
 populateBoard();
+stage.show(gopher);
 
 $(`#board`).on('click', function(event) {
   let gopherHole = ids.indexOf(event.target.id)

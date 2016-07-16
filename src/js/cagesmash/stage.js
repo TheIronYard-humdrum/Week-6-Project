@@ -3,6 +3,7 @@ import _ from 'lodash'
 
 import { Smashcage } from './game.js'
 import { Gopher } from './gophers.js'
+import { ids } from '../main.js'
 // // 0 = no gopher
 // // 1 = yes gopher
 

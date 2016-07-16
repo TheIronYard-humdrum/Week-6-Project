@@ -3,6 +3,7 @@ import _ from 'lodash'
 
 // import { Smashcage } from './game.js'
 // import { Stage } from './stage.js'
+import { ids } from '../main.js'
 
 
 class Gopher {

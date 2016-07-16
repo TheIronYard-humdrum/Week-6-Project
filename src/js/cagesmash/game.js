@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import _ from 'lodash'
 
-// import { Stage } from './stage.js'
+import { Stage } from './stage.js'
 import { Gopher } from './gophers.js'
 
 var gopherGenerator = function (numberDesiredGophers) {
@@ -28,6 +28,14 @@ class Smashcage {
       stage.show(this.gophers[i]);
       console.log(stage);
     }   
+  }
+
+  setUp(stage) {
+    let board = $('#board')
+    for ( var i = 0; i < stage.locations.length; i++ ) {
+      let spotHTML = `<div id='${ids[i]}' class='gopher-hole'></div>`
+      board.append(spotHTML)
+    }
   }
 
 }
