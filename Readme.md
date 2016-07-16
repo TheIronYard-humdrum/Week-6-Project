@@ -3,7 +3,7 @@
 
 **_javaScript Tools_**
 * Used a 'repeater' to show gophers one after the other.
-    * ```javascript
+     ```javascript
         var repeater = setInterval(function() {
             if(callCount < desiredCalls) {
                 do desired things
