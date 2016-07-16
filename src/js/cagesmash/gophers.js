@@ -1,10 +1,9 @@
 import $ from 'jquery'
 import _ from 'lodash'
 
-// import { Smashcage } from './game.js'
-// import { Stage } from './stage.js'
-import { ids } from '../main.js'
 
+import { ids } from './stage.js'
+import { level } from '../main.js'
 
 class Gopher {
   constructor () {
@@ -15,11 +14,10 @@ class Gopher {
   }
 
   smash() {
-    let ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
     this.smashed = true;
     this.costume = this.smashedCostume;
-    let gopherHole = $(`#${ids[this.location]}`)
-    gopherHole.css('background-image', `url(${this.costume})`)
+    let gopherHole = $(`#${ids[this.location]}`);
+    gopherHole.css('background-image', `url(${this.costume})`);
   }
 }
 

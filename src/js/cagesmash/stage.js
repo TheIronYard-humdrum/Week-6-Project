@@ -3,7 +3,7 @@ import _ from 'lodash'
 
 import { Smashcage } from './game.js'
 import { Gopher } from './gophers.js'
-import { ids } from '../main.js'
+import { level } from '../main.js'
 // // 0 = no gopher
 // // 1 = yes gopher
 
@@ -20,6 +20,8 @@ const smashedCostumes = ['https://www.placecage.com/c/120/120',
 const locations = [0,0,0,
                   0,0,0,
                   0,0,0]
+
+const ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
 
 var randomPosition = function () {
   let position = Math.floor(Math.random()*locations.length);
@@ -43,24 +45,34 @@ class Stage {
     this.locations = locations;
   }
 
-  show(gopher) {
-    let ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
+  show(gopher, level) {
+    // var gopher = gopher;
+    var that = this;
     gopher.costume = randomCostume();
     gopher.smashedCostume = randomSmashedCostume();
     gopher.location = randomPosition();
-    locations[gopher.location] = 1; //has gopher
+    locations[gopher.location] = gopher; //has gopher
     let gopherHole = $(`#${ids[gopher.location]}`)
     gopherHole.css('background-image', `url(${gopher.costume})`)
-
     // wait 2 seconds
+    setTimeout(function() {
+      that.hide(gopher)
+      locations[gopher.location] = 0;
+    }, level.time)
     // locations[gopher.position] = 0; //remove gopher from board
     // gopherHole.css('background-image', 'none') //remove gopher image
+  }
+
+  hide(gopher) {
+    let gopherHole = $(`#${ids[gopher.location]}`)
+    locations[gopher.position] = 0; //remove gopher from board
+    gopherHole.css('background-image', `none`)
   }
 
 }
 
 
-export { Stage }
+export { Stage, ids }
 
 
 
