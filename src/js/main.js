@@ -10,18 +10,10 @@ const medium = {time: 1800, gophers: 40 }
 const hard = {time: 1500, gophers: 50 }
 const crazy = {time: 1200, gophers: 60 }
 
-let stage = new Stage();
+let level = easy;
 
-let game = new Smashcage(stage, easy);
+let game = new Smashcage();
+let stage = new Stage(game);
+let gopher = new Gopher();
 
 
-function populateGopherHoles() {
-  for ( var i = 0; i < 9; i++ ) {
-    let gopherHoleHTML = `<div id="hole-${i}" class="gopher-hole"></div>`
-    $('#board').append(gopherHoleHTML);
-  }
-}
-
-populateGopherHoles();
-
-game.Init(stage, easy);
