@@ -1,9 +1,9 @@
 import $ from 'jquery'
 import _ from 'lodash'
 
-import { Smashcage } from './game.js'
-import { Gopher } from './gophers.js'
-import { level } from '../main.js'
+import { Smashcage } from '../game.js'
+import { Gopher } from '../gophers.js'
+import { level } from '../../main.js'
 import { randomPosition, randomCostume, randomSmashedCostume,
          prep, costumeShow, costumeHide } from './stageFunctions.js'
 
@@ -26,6 +26,13 @@ const ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eig
 class Stage {
   constructor () {
     this.locations = locations;
+  }
+  setUp() {
+    let board = $('#board')
+    for ( var i = 0; i < this.locations.length; i++ ) {
+      let spotHTML = `<div id='${ids[i]}' class='gopher-hole'></div>`
+      board.append(spotHTML)
+    }
   }
   show(gopher, level) {
     var that = this;

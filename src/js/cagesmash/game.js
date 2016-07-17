@@ -1,7 +1,8 @@
 import $ from 'jquery'
 import _ from 'lodash'
 
-import { Stage, ids } from './stage.js'
+import { Stage, ids } from './Stage/stage.js'
+import { firstToggle, secondToggle, thirdToggle, fourthToggle } from './Stage/stageFunctions.js'
 import { Gopher } from './gophers.js'
 import { level, findGophers } from '../main.js'
 
@@ -39,13 +40,6 @@ class Smashcage {
   addGopher(gopher, stage, level) {
     stage.show(gopher, level)
   }
-  setUp(stage) {
-    let board = $('#board')
-    for ( var i = 0; i < stage.locations.length; i++ ) {
-      let spotHTML = `<div id='${ids[i]}' class='gopher-hole'></div>`
-      board.append(spotHTML)
-    }
-  }
   init (stage, level) {
     var gopher = this.gophers[0]
     stage.show(gopher, level);
@@ -56,6 +50,15 @@ class Smashcage {
       if(callCount < level.gophers) {
         stage.show(gopher[callCount], level);
         callCount += 1;
+        if(callCount === (level.gophers/5)) {
+          firstToggle();
+        } else if (callCount === ((level.gophers/5)*2)) {
+          secondToggle();
+        } else if (callCount === ((level.gophers/5)*3)) {
+          thirdToggle();
+        } else if (callCount === ((level.gophers/5)*4)) {
+          fourthToggle();
+        }
       } else {
         clearInterval(repeater);
         setTimeout(function() {
