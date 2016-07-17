@@ -4,6 +4,8 @@ import _ from 'lodash'
 import { Smashcage } from './game.js'
 import { Gopher } from './gophers.js'
 import { level } from '../main.js'
+import { randomPosition, randomCostume, randomSmashedCostume,
+         prep, costumeShow, costumeHide } from './stageFunctions.js'
 
 const costumes = ['https://www.placecage.com/c/140/140',
                  'https://www.placecage.com/c/170/170',
@@ -13,29 +15,13 @@ const costumes = ['https://www.placecage.com/c/140/140',
 
 const smashedCostumes = ['https://www.placecage.com/c/120/120',
                         'https://www.placecage.com/c/130/130',
-                        'https://www.placecage.com/c/190/190']
+                        'https://www.placecage.com/c/190/190'];
+
 const locations = [0,0,0,
                    0,0,0,
-                   0,0,0]
+                   0,0,0];
 
-const ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
-
-var randomPosition = function () {
-  let position = Math.floor(Math.random()*locations.length);
-  if (locations[position] === 0 ) {
-      return position
-    } else {
-      randomPosition()
-    }
-}
-
-var randomCostume = function () {
-  return _.sample(costumes)
-}
-
-var randomSmashedCostume = function () {
-  return _.sample(smashedCostumes)
-}
+const ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
 
 class Stage {
   constructor () {
@@ -43,15 +29,10 @@ class Stage {
   }
   show(gopher, level) {
     var that = this;
-    gopher.costume = randomCostume();
-    gopher.smashedCostume = randomSmashedCostume();
-    gopher.location = randomPosition();
+    gopher = prep(gopher);
     locations[gopher.location] = gopher; //has gopher
     let gopherHole = $(`#${ids[gopher.location]}`)
-    gopherHole.css('background-image', `url(${gopher.costume})`)
-    gopherHole.css('border', `none`);
-    gopherHole.css('width', `220px`);
-    gopherHole.css('height', `220px`);
+    costumeShow(gopherHole, gopher.costume);
     setTimeout(function() {
       that.hide(gopher)
       locations[gopher.location] = 0;
@@ -60,11 +41,32 @@ class Stage {
   hide(gopher) {
     let gopherHole = $(`#${ids[gopher.location]}`)
     locations[gopher.position] = 0; //remove gopher from board
-    gopherHole.css('background-image', `none`);
-    gopherHole.css('border', `solid 12px purple`);
-    gopherHole.css('width', `200px`);
-    gopherHole.css('height', `200px`);
+    costumeHide(gopherHole);
   }
 }
 
-export { Stage, ids }
+export { Stage, ids, locations, costumes, smashedCostumes }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
