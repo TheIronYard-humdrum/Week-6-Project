@@ -105,6 +105,14 @@ h2 {
   left: 0;
   z-index: 1;
 }
+
+.road {
+  position: absolute;
+  z-index: 2;
+  top: 380px;
+  width: 100%;
+  height: 210px;
+}
 .bush-1 { // Old Man Bush
   position: absolute;
   z-index: 4;
@@ -158,7 +166,7 @@ h2 {
 .fire-4, .fire-5, .fire-6,
 .fire-7, .fire-8, .fire-9, .fire-10 {
   position: absolute;
-  z-index: 6;
+  z-index: 10;
   width: 100px;
 }
 
@@ -214,7 +222,7 @@ h2 {
 .ghost-rider {
   position: absolute;
   width: 250px;
-  z-index: 3;
+  z-index: 4;
   right: 140px;
 }
 
@@ -246,7 +254,7 @@ h2 {
   top: 260px;
   left: 0;
   transform: rotate(2deg);
-  z-index: 2;
+  z-index: 3;
 }
 
 .fire-2 {
@@ -257,7 +265,6 @@ h2 {
 .fire-3 {
   top: 320px;
   left: 160px;
-  z-index: 3;
 }
 // //////////////////////////////
 // ////////////// Sewer ////////////////
