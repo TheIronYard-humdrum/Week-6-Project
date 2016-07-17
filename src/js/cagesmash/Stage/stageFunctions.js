@@ -36,7 +36,8 @@ var prep = function(gopher) {
 
 var costumeShow = function (gopherHole, costume) {
     gopherHole.css('background-image', `url(${costume})`)
-    gopherHole.css('border', `solid 3px yellow`);
+    // gopherHole.css('border', `solid 3px yellow`);
+    gopherHole.css('border-radius', `80%`);
     // gopherHole.css('width', `220px`);
     // gopherHole.css('height', `220px`);
 }
