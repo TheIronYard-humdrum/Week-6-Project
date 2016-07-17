@@ -10,20 +10,23 @@ const medium = {time: 1300, gophers: 40 }
 const hard = {time: 1000, gophers: 50 }
 const crazy = {time: 700, gophers: 60 }
 
-var level = $('select').val().toLowerCase();
-if (level === 'medium') {
-  level = medium
-} else if (level === 'hard') {
-  level = hard
-} else if (level === 'crazy') {
-  level = crazy
-} else {
-  level = easy
+var getLevel = function() {
+  let level = $('select').val().toLowerCase();
+    if (level === 'medium') {
+    level = medium
+  } else if (level === 'hard') {
+    level = hard
+  } else if (level === 'crazy') {
+    level = crazy
+  } else {
+    level = easy
+  }
+  return level
 }
 
 let stage = new Stage();
-let gopher = new Gopher();
-let game = new Smashcage(level, stage);
+let game = new Smashcage(easy, stage);
+game.setUp(stage)
 
 var findGophers = function() {
   $(`#board`).on('click', function(event) {
@@ -38,12 +41,16 @@ var findGophers = function() {
 });
 }
 
-game.setUp(stage)
-findGophers();
-
-$('.submit').on('click', function(event) {
+$(`.submit`).on('click', function(event) {
   event.preventDefault();
+  $('#board').empty();
+  let level = getLevel();
+  let stage = new Stage();
+  let gopher = new Gopher();
+  let game = new Smashcage(level, stage);
+  game.setUp(stage)
   game.init(stage, level);
+  findGophers();
 });
 
-export { level, findGophers }
+export { findGophers }
