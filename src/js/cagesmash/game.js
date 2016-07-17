@@ -5,10 +5,24 @@ import { Stage, ids } from './stage.js'
 import { Gopher } from './gophers.js'
 import { level, findGophers } from '../main.js'
 
-const easy = {time: 2200, gophers: 30 }
-const medium = {time: 1800, gophers: 40 }
-const hard = {time: 1500, gophers: 50 }
-const crazy = {time: 1200, gophers: 60 }
+const easy = {time: 1600, gophers: 30 }
+const medium = {time: 1300, gophers: 40 }
+const hard = {time: 1000, gophers: 50 }
+const crazy = {time: 700, gophers: 60 }
+
+var getLevel = function() {
+  let level = $('select').val().toLowerCase();
+    if (level === 'medium') {
+    level = medium
+  } else if (level === 'hard') {
+    level = hard
+  } else if (level === 'crazy') {
+    level = crazy
+  } else {
+    level = easy
+  }
+  return level
+}
 
 var gopherGenerator = function (numberDesiredGophers) {
   let gophers = [];
@@ -55,4 +69,21 @@ class Smashcage {
   }
 }
 
-export { Smashcage }
+export { Smashcage, getLevel, easy }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
