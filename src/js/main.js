@@ -5,10 +5,10 @@ import { Smashcage } from './cagesmash/game.js'
 import { Stage, ids } from './cagesmash/stage.js'
 import { Gopher } from './cagesmash/gophers.js'
 
-const easy = {time: 1800, gophers: 30 }
-const medium = {time: 1500, gophers: 40 }
-const hard = {time: 1200, gophers: 50 }
-const crazy = {time: 900, gophers: 60 }
+const easy = {time: 1600, gophers: 30 }
+const medium = {time: 1300, gophers: 40 }
+const hard = {time: 1000, gophers: 50 }
+const crazy = {time: 700, gophers: 60 }
 
 var level = $('select').val().toLowerCase();
 if (level === 'medium') {

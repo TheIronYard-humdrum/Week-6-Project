@@ -49,6 +49,9 @@ class Stage {
     locations[gopher.location] = gopher; //has gopher
     let gopherHole = $(`#${ids[gopher.location]}`)
     gopherHole.css('background-image', `url(${gopher.costume})`)
+    gopherHole.css('border', `none`);
+    gopherHole.css('width', `220px`);
+    gopherHole.css('height', `220px`);
     setTimeout(function() {
       that.hide(gopher)
       locations[gopher.location] = 0;
@@ -57,7 +60,10 @@ class Stage {
   hide(gopher) {
     let gopherHole = $(`#${ids[gopher.location]}`)
     locations[gopher.position] = 0; //remove gopher from board
-    gopherHole.css('background-image', `none`)
+    gopherHole.css('background-image', `none`);
+    gopherHole.css('border', `solid 12px purple`);
+    gopherHole.css('width', `200px`);
+    gopherHole.css('height', `200px`);
   }
 }
 
