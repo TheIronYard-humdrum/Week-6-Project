@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import _ from 'lodash'
 
-import { ids } from './stage.js'
+import { ids } from './Stage/stage.js'
 import { level } from '../main.js'
 
 class Gopher {
@@ -17,6 +17,7 @@ class Gopher {
     this.costume = this.smashedCostume;
     let gopherHole = $(`#${ids[this.location]}`);
     gopherHole.css('background-image', `url(${this.costume})`);
+    gopherHole.css('border', `solid 3px yellow`);
   }
 }
 export { Gopher }

@@ -12,6 +12,10 @@ $grey: #607466;
 $onyx: #343E3D;
 $orange: #FA824C;
 
+.hidden {
+  display: none;
+}
+
 html {
   border: none;
 }
@@ -32,7 +36,7 @@ h1 {
   color: yellow;
   font-size: 2.8em;
   letter-spacing: 0.05em;
-  margin: 5px 0 8px;
+  margin: 45px 0 8px;
   padding: 0 5% 0 0;
   border: none;
   border-bottom: solid 3px yellow;
@@ -85,10 +89,34 @@ form {
 h2 {
   display: inline-block;
   font-size: 2.5em;
-  margin: 640px 0 0 20px;
+  position: absolute;
+  top: 620px;
+  left: 20px;
   background-color: yellow;
   border-radius: 50% 50%;
   font-family: $ChalkDuster;
+  z-index: 100;
+}
+// ///////////// Props /////////////
+.city {
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+.bush-1 { // Old Man Bush
+  position: absolute;
+  z-index: 4;
+  left: -200px;
+  top: 520px;
+}
+
+.bush-2 { // div eight
+  position: absolute;
+  z-index: 4;
+  left: 400px;
+  top: 520px;
 }
 
 .gopher-hole {
@@ -97,12 +125,11 @@ h2 {
   border-radius: 35%;
   display: inline-block;
   margin: 30px;
-  background-color: darken(grey, 15%);
-  border: solid 12px purple;
+  border: none;
+  background-color: transparent;
   text-align: center;
-
+  z-index: 100;
 }
-
 .img {
   height: 120px;
   width: 120px;
@@ -119,55 +146,226 @@ h2 {
 
 }
 
+// //////////////// Fire ////////////
+// 
+
+// first lit - .fire-1
+// second lit - .fire-2, .fire-3
+// thired lit - .fire-4, .fire-5, .fire-6
+// fourth lit - .fire-7, .fire-8, .fire-9, .fire-10
+
+.fire-1, .fire-2, .fire-3, 
+.fire-4, .fire-5, .fire-6,
+.fire-7, .fire-8, .fire-9, .fire-10 {
+  position: absolute;
+  z-index: 6;
+  width: 100px;
+}
+
+////////////////////////////////////////
+
 #zero {
-  top: 0px;
-  left: 40px;
-  background-color: red;
+  top: 20px;
+  left: 220px;
+  background-color: transparent;
+  // border: none;
+  transform: rotate(-10deg);
+  width: 145px;
+  height: 145px;
+}
+
+
+.helicopter {
+  position: absolute;
+  z-index: 3;
+  transform: scaleX(-1);
+  filter: FlipH;
+  left: 150px;
 }
 
 #one {
-  top: 80px;
-  left: 430px;
-  background-color: black;
+  top: -20px;
+  left: 450px;
+  transform: rotate(-10deg);
+  background-color: transparent;
 }
 
+
+// //////////// Bike //////////////////
 #two {
-  top: 30px;
-  left: 800px;
-  background-color: green;
+  top: 40px;
+  left: 810px;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  transform: rotate(15deg);
 }
 
+.bike {
+  width: 500px;
+  position: absolute;
+  top: 180px;
+  left: 640px;
+  z-index: 3;
+  transform: scaleX(-1);
+  filter: FlipH;
+}
+
+.ghost-rider {
+  position: absolute;
+  width: 250px;
+  z-index: 3;
+  right: 140px;
+}
+
+.fire-4 {
+  top: 300px;
+  right: 0px;
+}
+
+.fire-5 {
+  top: 320px;
+  right: 500px;
+  z-index: 7;
+}
+
+.fire-6 {
+  top: 310px;
+  right: 570px;
+}
+// /////////////////////////////////
+// //////////// Bus //////////////////
 #three {
  top: 200px;
- left: 190px;
- background-color: darken(purple, 10%);
+ left: 160px;
+ transform: rotate(-8deg);
+ background-color: transparent;
+}
+.bus {
+  position: absolute;
+  top: 260px;
+  left: 0;
+  transform: rotate(2deg);
+  z-index: 2;
+}
+
+.fire-2 {
+  top: 330px;
+  left: 240px;
+}
+
+.fire-3 {
+  top: 320px;
+  left: 160px;
+  z-index: 3;
+}
+// //////////////////////////////
+// ////////////// Sewer ////////////////
+
+.sewer {
+  position: absolute;
+  z-index: 3;
+  width: 150px;
+  top: 450px;
+  left: 400px;
 }
 
 #four {
- top: 220px;
- left: 630px;
- background-color: orange; 
+ top: 380px;
+ left: 400px;
+ width: 160px;
+ height: 160px;
+ background-color: transparent; 
 }
+// //////////////////////////////
+//  ////////// Dog ///////////////////
 
 #five {
- top: 390px;
- left: 890px; 
- background-color: black;
+ top: 375px;
+ left: 925px; 
+ background-color: transparent;
+ width: 180px;
+ height: 180px;
 }
 
+.dog {
+  position: absolute;
+  z-index: 3;
+  width: 200px;
+  top: 440px;
+  left: 880px;
+}
+// //////////////////////////////
+// //////////// Old Man //////////////////////
 #six {
- top: 390px;
- left: 30px;   
- background-color: darken(red, 20%);
+ top: 320px;
+ left: -40px; 
+ // border: none;
+ transform: rotate(20deg);
+ background-color: transparent;
 }
 
+.old-man {
+  position: absolute;
+  z-index: 3;
+  width: 200px;
+  top: 360px;
+}
+
+.fire-1 {
+  top: 550px;
+  left: 250px;
+}
+
+// //////////////////////////////////
+// /////////// Under Bike ///////////////////////
 #seven { 
-  top: 350px;
-  left: 400px; 
+  top: 290px;
+  right: 200px;
+  width: 150px;
+  height: 150px;
 }
 
+// //////////////////////////////////
+// //////// Second Bush ////////////
 #eight {
  top: 440px;
- left: 640px; 
- background-color: blue;
+ left: 610px; 
+ background-color: transparent;
+ width: 150px;
+ height: 150px;
 }
+
+.fire-7 {
+  bottom: 35px;
+  right: 240px;
+  width: 80px;
+}
+
+.fire-8 {
+  bottom: 20px;
+  right: 290px;
+  width: 80px;
+}
+
+.fire-9 {
+  bottom: 35px;
+  right: 390px;
+  width: 80px;
+}
+
+.fire-10 {
+  bottom: 40px;
+  right: 450px;
+  width: 80px;
+}
+
+
+
+
+
+
+
+
+
+
