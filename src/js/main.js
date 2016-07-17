@@ -25,6 +25,7 @@ var findGophers = function() {
 $(`.submit`).on('click', function(event) {
   event.preventDefault();
   $('#board').empty();
+  $('#board').append(`<h2 class="score">Score: 000</h2>`);
   let level = getLevel();
   let stage = new Stage();
   let gopher = new Gopher();
