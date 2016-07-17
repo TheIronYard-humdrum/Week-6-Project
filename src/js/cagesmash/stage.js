@@ -15,8 +15,8 @@ const smashedCostumes = ['https://www.placecage.com/c/120/120',
                         'https://www.placecage.com/c/130/130',
                         'https://www.placecage.com/c/190/190']
 const locations = [0,0,0,
-                  0,0,0,
-                  0,0,0]
+                   0,0,0,
+                   0,0,0]
 
 const ids = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
 
