@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
-import { costumes, smashedCostumes } from './stage.js'
+import { costumes } from './costumes.js'
+import { smashedCostumes } from './stage.js'
 
 
 const locations = [0,0,0,
@@ -18,13 +19,14 @@ var randomPosition = function () {
       randomPosition()
     }
 }
+var character = 'nickCage'
 
 var randomCostume = function () {
-  return _.sample(costumes)
+  return _.sample(costumes[`${character}`].costumes)
 }
 
 var randomSmashedCostume = function () {
-  return _.sample(smashedCostumes)
+  return _.sample(costumes[`${character}`].smashedCostumes)
 }
 
 var prep = function(gopher) {
