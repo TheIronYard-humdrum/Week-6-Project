@@ -368,6 +368,8 @@ h2 {
 }
 
 footer {
+  display: flex;
+  justify-content: space-between;
   p {
     color: yellow;
     font-family: $ChalkDuster;
@@ -378,5 +380,9 @@ footer {
     border: none;
     font-weight: 300;
   }
+  .humdrum {
+    padding: 0 10px;
+  }
+
   border: none;
 }
