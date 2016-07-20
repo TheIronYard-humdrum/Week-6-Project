@@ -1,9 +1,13 @@
-#### Week 6 Project
-### CageSmash
+#### Week 6 Project - Build A Game
+---
+###### First time building a game
+---
+#### CageSmash!
+---
 
 **[Surge](http://tiy-humdrum-cagesmashrefactor.surge.sh)**
 
-**_javaScript Tools_**
+###### **_javaScript Tools_**
 * Used a 'repeater' to show gophers one after the other.
     
 ```javascript
